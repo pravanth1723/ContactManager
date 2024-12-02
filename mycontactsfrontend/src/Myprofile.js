@@ -208,40 +208,6 @@ const MyProfile = () => {
     const [token] = useContext(store);
     const handleImageChange = (e) => setImage(e.target.files[0]);
 
-    // const handleUpload = async () => {
-    //   const formData = new FormData();
-    //   formData.append('image', image);
-    //   var toadd = {};
-    //   try {
-    //     const response = await axios.post('https://dpcontactmanager.onrender.com/api/upload', formData, {
-    //       headers: { 'Content-Type': 'multipart/form-data' }
-    //     });
-    //     //onContactsUploaded(response.data.contacts); // Send extracted contacts to MyProfile
-    //     console.log(response.data.contacts);
-    //     toadd = response.data.contacts;
-
-    //   }
-    //   catch (error) {
-    //     console.error('Error uploading image', error);
-    //   }
-    //   for (var i = 1; i < toadd.length; i++) {
-    //     //alert(token);
-    //     const name = toadd[i].name, email = toadd[i].email, phone = toadd[i].phone;
-    //     alert(name + email + phone);
-    //     //const addContact = () => {
-    //     const res = await axios.post('https://dpcontactmanager.onrender.com/api/contacts/', { name, email, phone }, {
-    //       headers: { 'Authorization': `Bearer ${token}` }
-    //     })
-    //       .then(res => {
-    //         console.log('Contact added successfully');
-    //         //handleAddContact({name,email,phone});
-    //         setData([...data, { name, email, phone }]);
-    //         //onSave(res.data); // Assuming response has the added contact
-    //       })
-    //       .catch(err => alert(err));
-
-    //   };
-    // };
     const handleUpload = async () => {
       if (!image) {
         alert('Please select an image first.');
@@ -286,7 +252,13 @@ const MyProfile = () => {
     return (
       <div>
         <input type="file" accept="image/*" onChange={handleImageChange} />
+        
         <button onClick={handleUpload}>Upload</button>
+        <br/>
+        <h6>
+            Add an image to add contacts write each contact row wise with 
+            Name space phoneno space email
+        </h6>
       </div>
     );
   };
