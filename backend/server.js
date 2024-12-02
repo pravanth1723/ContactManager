@@ -14,22 +14,15 @@ const port = 5500;
 connectDb();
 console.log("This is express");
 app.use(express.json());
-app.use(cors({ origin: "*" }));
-app.use(cors(
-  {
-    origin: ['https://cheery-griffin-a99c97.netlify.app/'],
-    methods: ['POST', 'GET', 'PUT', 'DELETE'],
-    credentials: true
-  }
-));
+//app.use(cors({ origin: "*" }));
 console.log('hi');
 app.use("/api/contacts", require("./routes/contactRoute"));
 app.use("/api/users", require("./routes/userRoutes"));
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' http://localhost:5500;");
+// app.use((req, res, next) => {
+//   res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' http://localhost:5500;");
 
-  next();
-});
+//   next();
+// });
 // adding on 1st dec
 
 
