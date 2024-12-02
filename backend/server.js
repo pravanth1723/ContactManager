@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 app.use(cors(
   {
-    origin: ['https://deploy-mern-lwhq.vercel.app'],
+    origin: ['https://cheery-griffin-a99c97.netlify.app/'],
     methods: ['POST', 'GET', 'PUT', 'DELETE'],
     credentials: true
   }

@@ -18,7 +18,7 @@ const AddModal = ({ isOpen, onClose, onSave }) => {
   const [token] = useContext(store);
 
   const addContact = () => {
-    axios.post('http://localhost:5500/api/contacts/', { name, email, phone }, {
+    axios.post('https://dpcontactmanager.onrender.com/api/contacts/', { name, email, phone }, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => {
@@ -162,7 +162,7 @@ const MyProfile = () => {
 
   useEffect(() => {
     if (token) {
-      axios.get('http://localhost:5500/api/contacts', {
+      axios.get('https://dpcontactmanager.onrender.com/api/contacts', {
         headers: { 'Authorization': `Bearer ${token}` }
       })
         .then(res => {
@@ -182,14 +182,14 @@ const MyProfile = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5500/api/contacts/${id}`, {
+    axios.delete(`https://dpcontactmanager.onrender.com/api/contacts/${id}`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => setData(data.filter(contact => contact._id !== id)));
   };
 
   const handleSave = (updatedContact) => {
-    axios.put(`http://localhost:5500/api/contacts/${updatedContact._id}`, updatedContact, {
+    axios.put(`https://dpcontactmanager.onrender.com/api/contacts/${updatedContact._id}`, updatedContact, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => setData(data.map(c => c._id === updatedContact._id ? updatedContact : c)))
@@ -213,7 +213,7 @@ const MyProfile = () => {
     //   formData.append('image', image);
     //   var toadd = {};
     //   try {
-    //     const response = await axios.post('http://localhost:5500/api/upload', formData, {
+    //     const response = await axios.post('https://dpcontactmanager.onrender.com/api/upload', formData, {
     //       headers: { 'Content-Type': 'multipart/form-data' }
     //     });
     //     //onContactsUploaded(response.data.contacts); // Send extracted contacts to MyProfile
@@ -229,7 +229,7 @@ const MyProfile = () => {
     //     const name = toadd[i].name, email = toadd[i].email, phone = toadd[i].phone;
     //     alert(name + email + phone);
     //     //const addContact = () => {
-    //     const res = await axios.post('http://localhost:5500/api/contacts/', { name, email, phone }, {
+    //     const res = await axios.post('https://dpcontactmanager.onrender.com/api/contacts/', { name, email, phone }, {
     //       headers: { 'Authorization': `Bearer ${token}` }
     //     })
     //       .then(res => {
@@ -252,7 +252,7 @@ const MyProfile = () => {
       formData.append('image', image);
     
       try {
-        const response = await axios.post('http://localhost:5500/api/upload', formData, {
+        const response = await axios.post('https://dpcontactmanager.onrender.com/api/upload', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
     
@@ -263,7 +263,7 @@ const MyProfile = () => {
           const { name, email, phone } = contact;
           try {
             const res = await axios.post(
-              'http://localhost:5500/api/contacts/',
+              'https://dpcontactmanager.onrender.com/api/contacts/',
               { name, email, phone },
               {
                 headers: { Authorization: `Bearer ${token}` },

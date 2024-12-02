@@ -17,7 +17,7 @@ const Register = () => {
             alert('Password and confirm password doesnt match');
             return;
         }
-        axios.post('http://localhost:5500/api/users/register',data).then(
+        axios.post('https://dpcontactmanager.onrender.com/api/users/register',data).then(
             response=>{
                 // alert(response.status+1);
                 if(response.status >= 200 && response.status < 300){
